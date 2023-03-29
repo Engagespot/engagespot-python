@@ -1,9 +1,9 @@
-This is the official Python library for communicating with Engagespot REST API. Send multi-channel notifications from your node app.
+This is the official Python library for communicating with Engagespot REST API. Send multi-channel notifications from your python app.
 
 # Installation
 
 ```
-pip install engagespot-python
+pip install engagespot
 ```
 
 # Prerequisites
