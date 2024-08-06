@@ -14,13 +14,17 @@ You need Engagespot API KEY and API SECRET from your [dashboard](https://console
 Before you can send a notification, you should create the user (recipient) profile in Engagespot.
 
 ```python
+from engagespot import Engagespot
+
+client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SECRET")
+
 user_profile = {
     "name" : "Python User",
     "email" : "python@engagespot.co",
     "phoneNumber": "+1620000000"
 }
 
-response = client.create_or_update_user("pythonuser2");
+response = client.create_or_update_user("user-identifier");
 ```
 
 # Triggering a workflow
@@ -29,7 +33,6 @@ The easiest way to send notifications in Engagespot is by creating message workf
 
 ```python
 from engagespot import Engagespot
-
 
 client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SECRET")
 
@@ -40,7 +43,7 @@ send_request = {
         }
     },
     "sendTo":{
-        "recipients": ["user-001"]
+        "recipients": ["user-identifier"]
     }
 }
     
