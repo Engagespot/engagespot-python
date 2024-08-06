@@ -7,9 +7,25 @@ pip install engagespot
 ```
 
 # Prerequisites
-You need Engagespot API KEY and API SECRET from your [dashboard](https://portal.engagespot.co) to get started. If you don't have one, just get one for free.
+You need Engagespot API KEY and API SECRET from your [dashboard](https://console.engagespot.co) to get started. If you don't have one, just get one for free.
 
-# Sending a notification
+# Creating or updating a user
+
+Before you can send a notification, you should create the user (recipient) profile in Engagespot.
+
+```python
+user_profile = {
+    "name" : "Python User",
+    "email" : "python@engagespot.co",
+    "phoneNumber": "+1620000000"
+}
+
+response = client.create_or_update_user("pythonuser2");
+```
+
+# Triggering a workflow
+
+The easiest way to send notifications in Engagespot is by creating message workflows in [Engagespot console](https://console.engagespot.co) and trigger it using this Python library.
 
 ```python
 from engagespot import Engagespot
@@ -19,23 +35,20 @@ client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SEC
 
 send_request = {
     "notification": {
-        "title":"Test from Python library🔥"
+        "workflow":{
+            "identifier":"welcome-message-workflow"
+        }
     },
-    "recipients":["uid_123456"]
+    "sendTo":{
+        "recipients": ["user-001"]
+    }
 }
     
 response = client.send(send_request)
 ```
 
-Refer [Engagespot REST API Docs](https://documentation.engagespot.co/docs/rest-api) to get the list of all supported parameters.
+Refer [Engagespot REST API Docs](https://docs.engagespot.co/docs/rest-api) to get the list of all supported parameters.
 
-# Creating or updating a user
 
-```python
-user_profile = {
-    "name" : "Python User",
-    "email" : "python@engagespot.co"
-}
-
-response = client.create_or_update_user("pythonuser2");
-```
+# Detailed Guide
+Read [Engagespot docs](https://docs.engagespot.co/docs/introduction/quick-start) to learn how to build and send notification workflows.

@@ -1,22 +1,26 @@
 from engagespot import Engagespot
 
 
-client = Engagespot(api_key="y57uye3rxiqmt350r5shi", api_secret="2o1dqq5s5hqda7o7mrlr38j6hcfi34i3637dcjiehje8011")
+client = Engagespot(api_key="ecnp1p3pqpgdh4mb5n0j6", api_secret="7gpdsngf968a9ngh9jfot2je66eh8c7f132933a038e491a")
 
 send_request = {
     "notification": {
-        "title":"Test from Python library🔥"
+        "workflow":{
+            "identifier":"plan-expiry-notification"
+        }
     },
-    "recipients":["uid_123456"]
+    "sendTo":{
+        "recipients": ["user-001"]
+    }
 }
     
-#response = client.send(send_request)
+response = client.send(send_request)
 
 user_profile = {
     "name" : "Python User",
     "email" : "python@engagespot.co"
 }
 
-user_response = client.create_or_update_user("pythonuser2");
+user_response = client.create_or_update_user("pythonuser2",profile=user_profile);
 
 print(user_response);
