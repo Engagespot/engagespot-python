@@ -16,7 +16,7 @@ Before you can send a notification, you should create the user (recipient) profi
 ```python
 from engagespot import Engagespot
 
-client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SECRET")
+client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SECRET", data_region="us")
 
 user_profile = {
     "name" : "Python User",
@@ -26,6 +26,8 @@ user_profile = {
 
 response = client.create_or_update_user("user-identifier");
 ```
+
+<i>`data_region` can be either `us` or `eu` depending on your workspace data region</i>
 
 # Triggering a workflow
 
