@@ -1,13 +1,22 @@
 import requests
 
+base_urls = {
+    'us': 'https://api.engagespot.co/v3',
+    'eu': 'https://api-eu.engagespot.co/v3'
+}
+
 class Engagespot(object):
     def __init__(self,
                  base_url="https://api.engagespot.co/v3",
                  api_key=None,
-                 api_secret=None
+                 api_secret=None,
+                 data_region="us"
                  ) -> None:
         if base_url:
             self.base_url = base_url
+
+        if data_region:
+            self.base_url = base_urls[data_region]
         
         if api_key:
             self.api_key = api_key
